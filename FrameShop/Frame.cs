@@ -16,5 +16,6 @@ namespace FrameShop
         public int Length { get { return length; } set { length = value; } }
         public int Quantity { get { return quantity; } set { quantity = value; } }
 
+        //that's it
     }
 }
