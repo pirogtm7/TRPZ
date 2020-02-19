@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FrameShop
 {
     public partial class Form1 : Form
@@ -16,11 +17,15 @@ namespace FrameShop
 
         Frame myFrame;
 
+        Serializer.XMLSerializator serializatorXML = new Serializer.XMLSerializator(typeof(FrameShop));
+
+        string pathXML = @"C:\Users\User\source\repos\FrameShop\FrameShop\bin\Debug\query.xml";
+
         public Form1()
         {
             InitializeComponent();
 
-            myFrameShop.AddMaterials();
+            DataAccess.GetDataFromFile(myFrameShop);
 
             foreach (Material material in myFrameShop.Materials)
             {
@@ -56,6 +61,9 @@ namespace FrameShop
                     }
                 }
             }
+
+            serializatorXML.Serialization(myFrameShop, pathXML);
+
         }
     }
 }
